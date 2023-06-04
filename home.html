@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hot Web</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylehome.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="images/logo.png" alt="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
+          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="index.php#products">Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="index.php#reviews">Reviews</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="index.php#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="payment.php">Payment</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                <?php
+include 'config.php';
+$userEmail = $_SESSION['userEmail'];
+$userNameResult = mysqli_query($connection, "SELECT `dbuser_name` FROM `register` WHERE dbuser_email='$userEmail'");
+$row = mysqli_fetch_assoc($userNameResult); // Fetch the row as an associative array
+$userName = $row['dbuser_name'];
+
+echo "<strong>$userName</strong>";
+?>
+
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="nav-link active" href="profile.php">
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-link active" href="logout.php">
+                    LogOut
+                  </a>
+                </li>
+
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="true">
+      <div class="carousel-indicators">
+        <button type="button" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-target="#carouselExampleIndicators" data-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-target="#carouselExampleIndicators" data-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row align-items-center">
+            <div class="col-md-7">
+              <h1>ASUS VIVOBOOK</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Porro, libero nemo. Veritatis maxime voluptatibus quidem
+                quisquam voluptatum error, esse inventore!
+              </p>
+              <h3>$2665</h3>
+              <br />
+              <div style="margin-left: 30%">
+                <a class="button" href="index.php#products">See more-></a>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <img src="images/banner-products/product-1.png" class="d-block w-100" alt="..." />
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row align-items-center">
+            <div class="col-md-7">
+              <h1>HP 450</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Porro, libero nemo. Veritatis maxime voluptatibus quidem
+                quisquam voluptatum error, esse inventore!
+              </p>
+              <h3>$239</h3>
+              <br />
+              <div style="margin-left: 30%">
+                <a class="button" href="index.php#products">See more-></a>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <img src="images/banner-products/slider-1.png" class="d-block w-100" alt="..." />
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row align-items-center">
+            <div class="col-md-7">
+              <h1>JBL Pro</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Porro, libero nemo. Veritatis maxime voluptatibus quidem
+                quisquam voluptatum error, esse inventore!
+              </p>
+              <h3>$165</h3>
+              <br />
+              <div style="margin-left: 30%">
+                <a class="button" href="index.php#products">See more-></a>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <img src="images/banner-products/slider-3.png" class="d-block w-100" alt="..." />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container" id="products">
+    <h4>Smartphone</h4>
+    <br /><br />
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="images/phone/phone-1.png" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h3 class="card-title">Redmi Note 8</h3>
+            <p class="card-text">
+              This is a longer caing text natural lead-in to additional
+              content. This content is a little bit longer.
+            </p>
+            <h3>$999</h3>
+            <br />
+            <button class="button" onclick="submitForm('Redmi Note 8',865)">
+              BUY NOW ->
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="images/phone/phone-2.png" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h3 class="card-title">iPhone 11 Pro</h3>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural
+              lead-in to additional content.
+            </p>
+            <h3>$699</h3>
+            <br />
+            <button class="button" onclick="submitForm('iPhone 11 Pro',699)">
+              BUY NOW ->
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="images/phone/phone-3.png" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h3 class="card-title">Samsung Note 11+</h3>
+            <p class="card-text">
+              This is a longer card with supporting text as a natural lead-in
+              to additional content. This content longer.
+            </p>
+            <h3>$499</h3>
+            <br />
+            <button class="button" onclick="submitForm('Redmi Note 8',999)">
+              BUY NOW ->
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>Laptops</h4>
+    <br />
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="images/laptop/product-1.png" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h3 class="card-title">Asus VivoBook</h3>
+            <p class="card-text">
+              This is a longer caing text natural lead-in to additional
+              content. This content is a little bit longer.
+            </p>
+            <h3>$899</h3>
+            <br />
+            <button class="button" onclick="submitForm('Asus VivoBook',899)">
+              BUY NOW ->
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="images/laptop/product-2.png" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h3 class="card-title">Razer Blade 15</h3>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural
+              lead-in to additional content.
+            </p>
+            <h3>$2799</h3>
+            <br />
+            <button class="button" onclick="submitForm('Razer Blade 15',2799)">
+              BUY NOW ->
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="images/laptop/product-3.png" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h3 class="card-title">Mi NoteBook Pro</h3>
+            <p class="card-text">
+              This is a longer card with supporting text as a natural lead-in
+              to additional content. This content longer.
+            </p>
+            <h3>$999</h3>
+            <br />
+            <button class="button" onclick="submitForm('Mi NoteBook Pro',789)">
+              BUY NOW ->
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="reviews">
+    <section class="mt-5">
+      <h1 class="text-center py-5">
+        Happy <span class="text-warning">Clients</span>
+      </h1>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card text-center h-100">
+            <img src="images/user-1.jpg" class="w-25 mx-auto mt-3 card-img-top" alt="..." />
+            <div class="card-body">
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="text-warning">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </p>
+              <h5 class="text-primary">Sudarsan Archarja</h5>
+              <p>Banker, Boston</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-center h-100">
+            <img src="images/user-2.jpg" class="w-25 mx-auto mt-3 card-img-top" alt="..." />
+            <div class="card-body">
+              <p class="card-text">This is a short card.</p>
+              <p class="text-warning">
+                <img class="rating-icon" src="images/icons/star-solid.svg" alt="" />
+                <img class="rating-icon" src="images/icons/star-solid.svg" alt="" />
+                <img class="rating-icon" src="images/icons/star-solid.svg" alt="" />
+                <img class="rating-icon" src="images/icons/star-half-stroke-solid.svg" alt="" />
+                <img class="rating-icon" src="images/icons/star-regular.svg" alt="" />
+              </p>
+              <h5 class="text-primary">Avishekh Mahdhav</h5>
+              <p>Banker, Boston</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img src="images/user-3.jpg" class="w-25 mx-auto mt-3 card-img-top" alt="..." />
+            <div class="card-body">
+              <p class="card-text">
+                This is a longer card with supporting text below as a natural
+                lead-in to additional content.
+              </p>
+              <p class="text-warning">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </p>
+              <h5 class="text-primary">Narattam Gaura</h5>
+              <p>Banker, Boston</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- //catagories -->
+  <div class="container categories">
+    <div class="row-1 d-flex justify-content-center">
+      <h1 class="Categories d-flex justify-content-center">Categories</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-3 d-flex align-items-center">
+        <div class="card d-flex align-items-center cardBox">
+          <div class="card-Center">
+            <div><img src="images/Categories/bag.png " alt="..." /></div>
+          </div>
+          <div class="card-body">
+            <h2>Bag</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card d-flex align-items-center cardBoxx">
+          <div class="card-Center">
+            <div><img src="images/Categories/perfume.png" alt="..." /></div>
+          </div>
+          <div class="card-body">
+            <h2>Bag</h2>
+          </div>
+        </div>
+
+        <div class="card d-flex align-items-center cardBoxx">
+          <div class="card-Center">
+            <div><img src="images/Categories/shoe.png" alt="..." /></div>
+          </div>
+          <div class="card-body">
+            <h2>Bag</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <img src="images/Categories/pale-order.png" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="contact">
+    <div class="service-container">
+      <div class="service-left-container">
+        <div class="service-details">
+          <h1 class="service-title">
+            <span class="primary">Service</span> We Can Help You With !
+          </h1>
+
+          <div class="author-details">
+            <div class="author-img-desc">
+              <img class="author-img" src="https://i.ibb.co/XStCsnJ/sheldon-Cooper.jpg" alt="" />
+              <h5>Koushik Roy <br /><small>CEO</small></h5>
+            </div>
+            <div class="more-details">
+              <div class="social">
+                <a href="https://www.facebook.com/profile.php?id=100008586699961&mibextid=ZbWKwL" target="_blank"
+                  class="social-media-icon">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/koushik-roy-855564123" target="_blank" class="social-media-icon">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://instagram.com/heyitskoushik?igshid=MzRlODBiNWFlZA==" target="_blank"
+                  class="social-media-icon">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="author-details">
+            <div class="author-img-desc">
+              <img class="author-img" src="images/user-2.jpg" alt="" />
+              <h5>Sunny Chopper <br /><small>Director</small></h5>
+            </div>
+            <div class="more-details">
+              <div class="social">
+                <a href="https://www.facebook.com/profile.php?id=100008586699961&mibextid=ZbWKwL" target="_blank"
+                  class="social-media-icon">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/koushik-roy-855564123" target="_blank" class="social-media-icon">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://instagram.com/heyitskoushik?igshid=MzRlODBiNWFlZA==" target="_blank"
+                  class="social-media-icon">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="service-right-container">
+        <div class="services">
+          <div class="service-up">
+            <div class="service">
+              <img class="service-logo" src="https://i.ibb.co/T8Tv5BH/ITHelp.png" alt="" />
+              <h5>Computer Repair and Troubleshooting</h5>
+            </div>
+            <div class="service">
+              <img class="service-logo" src="https://i.ibb.co/7KRrWkG/food-Charity.png" alt="" />
+              <h5>Custom-Built Computers</h5>
+            </div>
+          </div>
+          <div class="service-down">
+            <div class="service">
+              <img class="service-logo" src="https://i.ibb.co/RDKnV79/Architect.png" alt="" />
+              <h5>Networking Services</h5>
+            </div>
+            <div class="service">
+              <img class="service-logo" src="https://i.ibb.co/7nYRBdC/christian-buehner-Fd6osy-Vbt-G4-unsplash.jpg"
+                alt="" />
+              <h5>Remote Technical Support</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function submitForm(name, price) {
+      var form = document.createElement("form");
+      form.method = "post";
+      form.action = "create.php";
+      var nameInput = document.createElement("input");
+      nameInput.type = "hidden";
+      nameInput.name = "pd_name";
+      nameInput.value = name;
+      form.appendChild(nameInput);
+      var priceInput = document.createElement("input");
+      priceInput.type = "hidden";
+      priceInput.name = "pd_price";
+      priceInput.value = price;
+      form.appendChild(priceInput);
+      document.body.appendChild(form);
+      form.submit();
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+    integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
